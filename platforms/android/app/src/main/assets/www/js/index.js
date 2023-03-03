@@ -23,6 +23,31 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 document.addEventListener('volumeupbutton', onVolumeUp, false);
 
+document.addEventListener('pause', onPaused, false);
+
+document.addEventListener('resume', onResume, false);
+
+document.addEventListener('backbutton', onBackPressed, false)
+
+document.addEventListener('volumedownbutton', onVolumeDown, false)
+
+function onVolumeDown() {
+    alert("Volume up pressed")
+}
+
+function onBackPressed(e) {
+    e.preventDefault();
+    alert("Back pressed")
+}
+
+function onPaused(){
+    alert("Pausing App")
+}
+
+function onResume() {
+    alert("Resuming App")
+}
+
 function onVolumeUp() {
     alert('Volume up is pressed')
 }

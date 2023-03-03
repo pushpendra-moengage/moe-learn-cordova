@@ -21,9 +21,67 @@
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
 document.addEventListener('deviceready', onDeviceReady, false);
 
+document.addEventListener('volumeupbutton', onVolumeUp, false);
+
+document.addEventListener('pause', onPaused, false);
+
+document.addEventListener('resume', onResume, false);
+
+document.addEventListener('backbutton', onBackPressed, false)
+
+document.addEventListener('volumedownbutton', onVolumeDown, false)
+
+function onVolumeDown() {
+    alert("Volume up pressed")
+}
+
+function onBackPressed(e) {
+    e.preventDefault();
+    alert("Back pressed")
+}
+
+function onPaused(){
+    alert("Pausing App")
+}
+
+function onResume() {
+    alert("Resuming App")
+}
+
+function onVolumeUp() {
+    alert('Volume up is pressed')
+}
+
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+
+    document.getElementById("setLocalStorage").addEventListener("click", setLocalStorage);
+            document.getElementById("showLocalStorage").addEventListener("click", showLocalStorage);
+            document.getElementById("removeProjectFromLocalStorage").addEventListener("click", removeProjectFromLocalStorage);
+            document.getElementById("getLocalStorageByKey").addEventListener("click", getLocalStorageByKey);
+
+            var localStorage = window.localStorage
+
+            function setLocalStorage(){
+                localStorage.setItem("Name", "AP")
+                localStorage.setItem("Job", "SE")
+                localStorage.setItem("Project", "Cordova")
+            }
+
+            function showLocalStorage() {
+                console.log(localStorage.getItem("Name"))
+                console.log(localStorage.getItem("Job"))
+                console.log(localStorage.getItem("Project"))
+            }
+
+            function removeProjectFromLocalStorage() {
+                localStorage.removeItem("Project")
+            }
+
+            function getLocalStorageByKey() {
+                console.log(localStorage.key(0))
+            }
 }

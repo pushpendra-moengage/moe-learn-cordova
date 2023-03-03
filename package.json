@@ -20,7 +20,10 @@
     "platforms": [
       "browser",
       "android"
-    ]
+    ],
+    "plugins": {
+      "cordova-plugin-dialogs": {}
+    }
   },
   "dependencies": {
     "cordova-plugin-dialogs": "^2.0.2"
