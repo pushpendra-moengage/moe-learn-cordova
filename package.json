@@ -21,5 +21,8 @@
       "browser",
       "android"
     ]
+  },
+  "dependencies": {
+    "cordova-plugin-dialogs": "^2.0.2"
   }
 }
