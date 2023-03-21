@@ -24,6 +24,44 @@ var moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
     
 document.addEventListener('deviceready', onDeviceReady, false);
 
+function onDeviceReady() {
+    // Cordova is now initialized. Have fun!
+
+
+    setPlayground();
+    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+    document.getElementById('deviceready').classList.add('ready');
+}
+
+function setPlayground(){
+    document.getElementById("setLocalStorage").addEventListener("click", setLocalStorage);
+            document.getElementById("showLocalStorage").addEventListener("click", showLocalStorage);
+            document.getElementById("removeProjectFromLocalStorage").addEventListener("click", removeProjectFromLocalStorage);
+            document.getElementById("getLocalStorageByKey").addEventListener("click", getLocalStorageByKey);
+
+            var localStorage = window.localStorage
+
+            function setLocalStorage(){
+                localStorage.setItem("Name", "AP")
+                localStorage.setItem("Job", "SE")
+                localStorage.setItem("Project", "Cordova")
+            }
+
+            function showLocalStorage() {
+                console.log(localStorage.getItem("Name"))
+                console.log(localStorage.getItem("Job"))
+                console.log(localStorage.getItem("Project"))
+            }
+
+            function removeProjectFromLocalStorage() {
+                localStorage.removeItem("Project")
+            }
+
+            function getLocalStorageByKey() {
+                console.log(localStorage.key(0))
+            }
+}
+
 document.addEventListener('volumeupbutton', onVolumeUp, false);
 
 document.addEventListener('pause', onPaused, false);
@@ -53,38 +91,4 @@ function onResume() {
 
 function onVolumeUp() {
     alert('Volume up is pressed')
-}
-
-function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
-
-    document.getElementById("setLocalStorage").addEventListener("click", setLocalStorage);
-            document.getElementById("showLocalStorage").addEventListener("click", showLocalStorage);
-            document.getElementById("removeProjectFromLocalStorage").addEventListener("click", removeProjectFromLocalStorage);
-            document.getElementById("getLocalStorageByKey").addEventListener("click", getLocalStorageByKey);
-
-            var localStorage = window.localStorage
-
-            function setLocalStorage(){
-                localStorage.setItem("Name", "AP")
-                localStorage.setItem("Job", "SE")
-                localStorage.setItem("Project", "Cordova")
-            }
-
-            function showLocalStorage() {
-                console.log(localStorage.getItem("Name"))
-                console.log(localStorage.getItem("Job"))
-                console.log(localStorage.getItem("Project"))
-            }
-
-            function removeProjectFromLocalStorage() {
-                localStorage.removeItem("Project")
-            }
-
-            function getLocalStorageByKey() {
-                console.log(localStorage.key(0))
-            }
 }
