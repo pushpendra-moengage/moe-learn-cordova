@@ -20,13 +20,17 @@ import MoECordova;
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-var moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
     
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
+    var moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
+
+    // GAID Tracking
+    // moe.enableAdIdTracking();
+    // moe.disableAdIdTracking();
 
     setPlayground();
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);

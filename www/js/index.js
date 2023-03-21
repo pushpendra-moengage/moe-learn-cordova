@@ -28,6 +28,9 @@ function onDeviceReady() {
 
     var moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
 
+    // GAID Tracking
+    // moe.enableAdIdTracking();
+    // moe.disableAdIdTracking();
 
     setPlayground();
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
