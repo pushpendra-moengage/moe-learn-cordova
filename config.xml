@@ -8,4 +8,18 @@
     <content src="index.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+
+    <preference name="GradlePluginKotlinEnabled" value="true" />
+    <preference name="GradlePluginKotlinCodeStyle" value="official" />
+    <preference name="GradlePluginKotlinVersion" value="1.8.10" />
+
+
+    <source-file src="src/android/file.kt" target-dir="app/src/main/kotlin/xx/yy/zz" />
+
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="AndroidXEnabled" value="true" />
+        <preference name="android-compileSdkVersion" value="31" />
+    </platform>
+
 </widget>

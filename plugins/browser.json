@@ -9,6 +9,9 @@
   "installed_plugins": {
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-moengage-core": {
+      "PACKAGE_NAME": "io.pin.core.hellocordova"
     }
   },
   "dependent_plugins": {}

@@ -109,6 +109,7 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
+apply from: "../cordova-moengage-core/hellocordova-build-extras.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -184,11 +185,11 @@ android {
         applicationId privateHelpers.extractStringFromManifest("package")
 
         minSdkVersion cordovaConfig.MIN_SDK_VERSION
-        if (cordovaConfig.MAX_SDK_VERSION != null) {
-            maxSdkVersion cordovaConfig.MAX_SDK_VERSION
-        }
-        targetSdkVersion cordovaConfig.SDK_VERSION
-        compileSdkVersion cordovaConfig.SDK_VERSION
+        // if (cordovaConfig.MAX_SDK_VERSION != null) {
+            // maxSdkVersion cordovaConfig.MAX_SDK_VERSION
+        // }
+        targetSdkVersion 31
+        compileSdkVersion 31
     }
 
     lintOptions {

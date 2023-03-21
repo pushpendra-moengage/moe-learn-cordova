@@ -1,3 +1,4 @@
+import MoECordova;
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -19,6 +20,8 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+var moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
+    
 document.addEventListener('deviceready', onDeviceReady, false);
 
 document.addEventListener('volumeupbutton', onVolumeUp, false);

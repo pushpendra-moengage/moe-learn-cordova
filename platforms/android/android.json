@@ -11,6 +11,10 @@
             {
               "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"MoEngage\"><param name=\"android-package\" value=\"com.moengage.cordova.MoECordova\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -18,7 +22,13 @@
     }
   },
   "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "io.pin.core.hellocordova"
+    },
     "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "io.pin.core.hellocordova"
+    },
+    "cordova-moengage-core": {
       "PACKAGE_NAME": "io.pin.core.hellocordova"
     }
   },
@@ -39,9 +49,34 @@
       "merges": [
         "navigator.notification"
       ]
+    },
+    {
+      "id": "cordova-moengage-core.MoECordova",
+      "file": "plugins/cordova-moengage-core/www/MoECordova.js",
+      "pluginId": "cordova-moengage-core",
+      "clobbers": [
+        "MoECordova"
+      ]
+    },
+    {
+      "id": "cordova-moengage-core.MoEConstants",
+      "file": "plugins/cordova-moengage-core/www/MoEConstants.js",
+      "pluginId": "cordova-moengage-core",
+      "clobbers": [
+        "MoEConstants"
+      ]
+    },
+    {
+      "id": "cordova-moengage-core.MoEJsonProvider",
+      "file": "plugins/cordova-moengage-core/www/MoEJsonProvider.js",
+      "pluginId": "cordova-moengage-core",
+      "clobbers": [
+        "MoEJsonProvider"
+      ]
     }
   ],
   "plugin_metadata": {
-    "cordova-plugin-dialogs": "2.0.2"
+    "cordova-plugin-dialogs": "2.0.2",
+    "cordova-moengage-core": "8.3.0"
   }
 }
