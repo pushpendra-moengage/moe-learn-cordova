@@ -23,4 +23,5 @@ dependencies {
 
   implementation 'com.google.firebase:firebase-messaging:23.0.8'
 
+  implementation("com.moengage:inapp:6.5.0")
 }

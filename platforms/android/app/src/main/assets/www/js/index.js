@@ -29,6 +29,7 @@ function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
     moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
+    moe.showInApp();
 
     let version = 2;
 
