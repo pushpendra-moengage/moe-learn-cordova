@@ -1,4 +1,5 @@
-import MoECordova;
+// import MoECordova;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -20,9 +21,37 @@ import MoECordova;
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-var moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
+var moe
     
 document.addEventListener('deviceready', onDeviceReady, false);
+
+function onDeviceReady() {
+    // Cordova is now initialized. Have fun!
+
+    moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
+
+    let version = 2;
+
+    if(version == 1){
+        moe.setAppStatus("INSTALL");
+    } else {
+        moe.setAppStatus("UPDATE");
+    }
+
+    // Login
+
+    setLogin();
+
+    // moe.setUniqueId("cordova@app");
+    
+
+    // setPlayground();
+    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+    document.getElementById('deviceready').classList.add('ready');
+
+    document.getElementById('login').addEventListener("click", login(moe));
+
+}
 
 document.addEventListener('volumeupbutton', onVolumeUp, false);
 
@@ -33,6 +62,38 @@ document.addEventListener('resume', onResume, false);
 document.addEventListener('backbutton', onBackPressed, false)
 
 document.addEventListener('volumedownbutton', onVolumeDown, false)
+
+document.getElementById("setLocalStorage").addEventListener("click", setLocalStorage); 
+document.getElementById("showLocalStorage").addEventListener("click", showLocalStorage); 
+document.getElementById("removeProjectFromLocalStorage").addEventListener 
+   ("click", removeProjectFromLocalStorage); 
+document.getElementById("getLocalStorageByKey").addEventListener 
+   ("click", getLocalStorageByKey);  
+var localStorage = window.localStorage;
+
+function setLocalStorage() { 
+    localStorage.setItem("Name", "John"); 
+    localStorage.setItem("Job", "Developer"); 
+    localStorage.setItem("Project", "Cordova Project"); 
+ } 
+
+ function showLocalStorage() { 
+    console.log(localStorage.getItem("Name")); 
+    console.log(localStorage.getItem("Job")); 
+    console.log(localStorage.getItem("Project")); 
+ } 
+
+ function removeProjectFromLocalStorage() {
+    localStorage.removeItem("Project");
+ }
+
+ function getLocalStorageByKey() {
+    console.log(localStorage.key(0));
+ }
+
+function login(moe) {
+    moe.setUniqueId("cordova@app_32");
+}
 
 function onVolumeDown() {
     alert("Volume up pressed")
@@ -53,38 +114,4 @@ function onResume() {
 
 function onVolumeUp() {
     alert('Volume up is pressed')
-}
-
-function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
-
-    document.getElementById("setLocalStorage").addEventListener("click", setLocalStorage);
-            document.getElementById("showLocalStorage").addEventListener("click", showLocalStorage);
-            document.getElementById("removeProjectFromLocalStorage").addEventListener("click", removeProjectFromLocalStorage);
-            document.getElementById("getLocalStorageByKey").addEventListener("click", getLocalStorageByKey);
-
-            var localStorage = window.localStorage
-
-            function setLocalStorage(){
-                localStorage.setItem("Name", "AP")
-                localStorage.setItem("Job", "SE")
-                localStorage.setItem("Project", "Cordova")
-            }
-
-            function showLocalStorage() {
-                console.log(localStorage.getItem("Name"))
-                console.log(localStorage.getItem("Job"))
-                console.log(localStorage.getItem("Project"))
-            }
-
-            function removeProjectFromLocalStorage() {
-                localStorage.removeItem("Project")
-            }
-
-            function getLocalStorageByKey() {
-                console.log(localStorage.key(0))
-            }
 }
