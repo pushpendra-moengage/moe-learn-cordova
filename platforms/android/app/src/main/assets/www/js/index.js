@@ -29,7 +29,31 @@ function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
     moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
-    moe.showInApp();
+    moe.setCurrentContext(["Champ-core"]);
+
+    // moe.on('onInAppSelfHandle', function(selfHandledPayload) {
+    //     console.log('Self hanlded InApp Info: ' + JSON.stringify(selfHandledPayload));
+    //  });
+
+    // moe.getSelfHandledInApp();
+
+    moe.on('onInAppShown', function(inAppInfo) {
+        console.log('InApp Shown with Info: ' + JSON.stringify(inAppInfo));
+  });
+  
+  moe.on('onInAppClick', function(inAppInfo) {
+      console.log('InApp Shown Clicked with Info: ' + JSON.stringify(inAppInfo));
+  });
+  
+  moe.on('onInAppDismiss', function(inAppInfo) {
+      console.log('InApp Dismissed with Info: ' + JSON.stringify(inAppInfo));
+  });
+  
+  moe.on('onInAppCustomAction', function(inAppInfo) {
+      console.log('InApp Custom Action with Info: ' + JSON.stringify(inAppInfo));
+  });
+
+  moe.showInApp();
 
     let version = 2;
 
@@ -39,30 +63,45 @@ function onDeviceReady() {
         moe.setAppStatus("UPDATE");
     }
 
-    // Login
-
-    setLogin();
-
-    // moe.setUniqueId("cordova@app");
     
 
-    // setPlayground();
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
 
-    document.getElementById('login').addEventListener("click", login(moe));
+    // Login
+    login();
+    
+
+
+    // Push click callback
+
+    moe.on("onPushClick", (payloadInfo) => {
+        console.log("----- Push click callback cordova begins --------")
+        console.log(payloadInfo?.data);
+        console.log("----- Push click callback cordova ends --------")
+        
+    })
 
 }
 
-document.addEventListener('volumeupbutton', onVolumeUp, false);
+function login() {
+    moe.setUniqueId("cordova@app_32");
+    alert('Tried logging in')
+    console.log("Loggin with with ")
+}
 
-document.addEventListener('pause', onPaused, false);
 
-document.addEventListener('resume', onResume, false);
+// ------------------------------------- Non essential code below ------------------------------//
 
-document.addEventListener('backbutton', onBackPressed, false)
+// document.addEventListener('volumeupbutton', onVolumeUp, false);
+// 
+// document.addEventListener('pause', onPaused, false);
 
-document.addEventListener('volumedownbutton', onVolumeDown, false)
+// document.addEventListener('resume', onResume, false);
+
+// document.addEventListener('backbutton', onBackPressed, false)
+
+// document.addEventListener('volumedownbutton', onVolumeDown, false)
 
 document.getElementById("setLocalStorage").addEventListener("click", setLocalStorage); 
 document.getElementById("showLocalStorage").addEventListener("click", showLocalStorage); 
@@ -92,10 +131,6 @@ function setLocalStorage() {
     console.log(localStorage.key(0));
  }
 
-function login(moe) {
-    moe.setUniqueId("cordova@app_32");
-}
-
 function onVolumeDown() {
     alert("Volume up pressed")
 }
@@ -115,4 +150,5 @@ function onResume() {
 
 function onVolumeUp() {
     alert('Volume up is pressed')
+    console.log("Volume Up")
 }

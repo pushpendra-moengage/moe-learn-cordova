@@ -21,7 +21,7 @@ public class MyApplication extends Application {
         MoEngage.Builder moEngage = new MoEngage.Builder(this, "8SIW681S80Z08KSHQFSTIZ8T")
                                             .configureFcm(new FcmConfig(true))
                                             .configureLogs(new LogConfig(5, true))
-                                            .configureNotificationMetaData(new NotificationConfig(R.mipmap.ic_launcher, R.mipmap.ic_launcher));
+                                            .configureNotificationMetaData(new NotificationConfig(R.mipmap.ic_launcher, R.mipmap.ic_launcher, -1, true, false, true));
         MoEInitializer.initialiseDefaultInstance(this, moEngage);
     }
     
