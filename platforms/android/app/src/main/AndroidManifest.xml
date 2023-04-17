@@ -9,7 +9,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:exported="true" android:name="com.moengage.firebase.MoEFireBaseMessagingService">
+        <service android:exported="true" android:name=".CordovaFireMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

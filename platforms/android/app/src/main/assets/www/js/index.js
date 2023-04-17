@@ -55,6 +55,8 @@ function onDeviceReady() {
 
   moe.showInApp();
 
+  moe.onOrientationChanged();
+  
     let version = 2;
 
     if(version == 1){
