@@ -17,5 +17,6 @@ public class CordovaFireMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
+        MoEFireBaseHelper.getInstance().passPushToken(getApplicationContext(), token);
     }
 }

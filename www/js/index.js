@@ -28,14 +28,18 @@ document.addEventListener('deviceready', onDeviceReady, false);
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
-    moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
+    // moe = MoECordova.init("8SIW681S80Z08KSHQFSTIZ8T");
+
+    var moe = MoECordova.init("YRRM72T6B2LAXARZC8TH9TGP");
+    moe.trackEvent("Advance Payments", { "screen name": "ADVANCE PAYMENT","loan-amount":"200","LAN":"100001" }, true);
+
     moe.setCurrentContext(["Champ-core"]);
 
-    // moe.on('onInAppSelfHandle', function(selfHandledPayload) {
-    //     console.log('Self hanlded InApp Info: ' + JSON.stringify(selfHandledPayload));
-    //  });
+    moe.getSelfHandledInApp();
 
-    // moe.getSelfHandledInApp();
+    moe.on('onInAppSelfHandle', function(selfHandledPayload) {
+        console.log('Self hanlded InApp Info: ' + JSON.stringify(selfHandledPayload));
+     });
 
     moe.on('onInAppShown', function(inAppInfo) {
         console.log('InApp Shown with Info: ' + JSON.stringify(inAppInfo));
@@ -54,6 +58,7 @@ function onDeviceReady() {
   });
 
   moe.showInApp();
+
 
   moe.onOrientationChanged();
   
